@@ -1,10 +1,10 @@
 # git-trunk-demo
 
-## Repo
+## Git Trunk Strategy
 - Main
-- Release branch v1.0
--
-- Release branch v2.0
-- 
-- Release branch v3.0
-- 
+  - Release branch v1.0
+    - 
+  - Release branch v2.0
+    - 
+  - Release branch v3.0
+    - 
