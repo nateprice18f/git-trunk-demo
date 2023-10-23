@@ -8,3 +8,5 @@
     - 
   - Release branch v3.0
     - 
+## Git Trunk Flow Steps
+- Main 
