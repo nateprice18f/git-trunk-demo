@@ -1,4 +1,7 @@
-## Git trunk-based development README
+## Git trunk-based development 
+
+> **Warning**
+> The work done within this repo are proof of concept and should be used as a starting point for future work.
 
 ## A simple guide to trunk-based development with use of release tags.
 Trunk-Based Development with GitTrunk-based development is a software development approach where all developers work on a single branch, often called 'trunk' or 'main'.
