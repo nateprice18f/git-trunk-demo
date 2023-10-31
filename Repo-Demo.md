@@ -6,63 +6,59 @@ This is a very basic example and DOES not cover all the complexities of a projec
 
 Simple example of how you might use git for trunk-based development with two release branches for version 1 and version 2. In this demo; shows how two features (feature1 and feature2) are created and then merged back into the version branches using release tags.
 
-# Initialize a new git repository
+# Create a new repository 
 ```
-git init
+git init 
 ```
-# Create an initial commit
+
+# Create a new file and add it to the repository 
 ```
 echo "Initial commit" > file.txt
 git add file.txt
-git commit -m "Initial commit"
+```
+ 
+# Commit the changes to the main branch 
+```
+git commit -m "Initial commit" 
 ```
 
-# Create two release branches for version 1 and version 2
+# Create two feature branches 
 ```
-git branch release/v1
-git branch release/v2
+git branch feature1
+git branch feature2
 ```
-
-# Create and checkout a new branch for feature1
+ 
+# Switch to the first feature branch and make some changes 
 ```
-git checkout -b feature1
-echo "Feature 1" >> file.txt
-git commit -am "Add feature 1"
-```
-
-# Merge feature1 into release/v1 and tag it
-```
-git checkout release/v1
-git merge feature1 -m "Merge feature 1 into v1"
-git tag v1.1
+git checkout feature1
+echo "Feature 1" > feature1.txt
+git add feature1.txt
+git commit -m "Add Feature 1"
 ```
 
-# Merge feature1 into release/v2 and tag it
+# Switch to the second feature branch and make some changes 
 ```
-git checkout release/v2
-git merge feature1 -m "Merge feature 1 into v2"
-git tag v2.1
+git checkout feature2 
+echo "Feature 2" > feature2.txt 
+git add feature2.txt 
+git commit -m "Add Feature 2" 
 ```
-
-# Create and checkout a new branch for feature2
+ 
+# Merge the first feature branch back into main with a release tag 
 ```
-git checkout -b feature2
-echo "Feature 2" >> file.txt
-git commit -am "Add feature 2"
+git checkout main 
+git merge --no-ff feature1 -m "Merge Feature 1 into Main" 
+git tag v1.0.0 
 ```
-
-# Merge feature2 into release/v1 and tag it
+ 
+# Merge the second feature branch back into main and publish the release 
 ```
-git checkout release/v1
-git merge feature2 -m "Merge feature 2 into v1"
-git tag v1.2
-```
-
-# Merge feature2 into release/v2 and tag it
-```
-git checkout release/v2
-git merge feature2 -m "Merge feature 2 into v2"
-git tag v2.2
+git merge --no-ff feature2 -m "Merge Feature 2 into Main" 
+git tag v1.1.0 
+git push --tags origin main
 ```
 
-# Now, you have two versions of your software with different features in different branches.
+# Push all local commits to remote  
+```
+git push -all
+```
